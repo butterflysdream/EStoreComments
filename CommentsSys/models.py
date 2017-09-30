@@ -10,6 +10,18 @@ class ProductInfo(models.Model):
     p_id = models.IntegerField(verbose_name='商品ID')
     p_platform = models.CharField(max_length=20,verbose_name='电商平台',default='淘宝')
 
+    class Meta:
+        verbose_name = '商品'
+        verbose_name_plural = "商品"
+
 class ProductComm(models.Model):
     product = models.ForeignKey(ProductInfo)
+    comm_sku = models.CharField(max_length=300,verbose_name="SKU",blank=True,null=True)
+    comm_id = models.BigIntegerField(verbose_name='评论ID',blank=True,null=True)
+    comm_nickname = models.CharField(max_length=100,verbose_name='用户昵称',blank=True,null=True)
+    comm_date = models.DateTimeField(verbose_name='评论时间',blank=True,null=True)
     comm_content = models.TextField(max_length=2000,null=True,blank=True,verbose_name='评论');
+
+    class Meta:
+        verbose_name = '评论'
+        verbose_name_plural = "评论"
