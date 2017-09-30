@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}评论分析{% endblock %}
+{% block content %}
+    <div class="container-fluid" style="padding-top: 70px">
+        <div class="row">
+            <div class="col-sm-12 col-sm-offset-0 col-md-12 col-md-offset-0 main">
+                <h1 class="page-header">评论分析</h1>
+                <form class="form-horizontal " action="{% url 'dealcomm' %} " method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="urltext" class="col-sm-1 col-sm-offset-0 col-lg1 col-md-lg2-0 col-md-1 col-md-offset-0 control-label">商品地址</label>
+                        <div class="col-sm-6 col-lg-6 col-md-6">
+                            <input type="text" class="form-control" id="urltext" name="urltext"></div>
+                        <div class="col-sm-1 col-lg-1 col-md-1">
+                        <button type="submit" class="btn btn-primary ">提交</button></div>
+                    </div>
+
+                </form>
+                <p>{{ error }}</p>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
