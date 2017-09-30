@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}买家秀{% endblock %}
+{% block content %}
+    <div class="container-fluid" style="padding-top: 70px">
+        <div class="row">
+            {% for image in images %}
+            <div class="col-xs-6 col-md-3">
+                <a href="{{ image.imageUrl }} class="thumbnail">
+                    <img src="{{ image.imageUrl }}">
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    </div>
+{% endblock %}

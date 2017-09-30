@@ -25,3 +25,7 @@ class ProductComm(models.Model):
     class Meta:
         verbose_name = '评论'
         verbose_name_plural = "评论"
+
+class ProductCommImage(models.Model):
+    product_comm = models.ForeignKey(ProductComm)
+    imageUrl = models.URLField(verbose_name='买家秀地图片')

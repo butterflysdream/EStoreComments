@@ -105,5 +105,6 @@ def get_comm(url):
             comm["nickname"] = rate["displayUserNick"]
             comm["date"] = rate["rateDate"]
             comm["content"] = rate["rateContent"]
+            comm["pics"] = rate["pics"]
             comms.append(comm)
     return comms
