@@ -4,10 +4,8 @@
     <div class="container-fluid" style="padding-top: 70px">
         <div class="row">
             {% for image in images %}
-            <div class="col-xs-6 col-md-3">
-                <a href="{{ image.imageUrl }} class="thumbnail">
-                    <img src="{{ image.imageUrl }}">
-                </a>
+            <div class="col-xs-6 col-md-4">
+                <img src="{{ image.imageUrl }}"class="img-rounded" style="height: 400px; width: 100%;">
             </div>
             {% endfor %}
         </div>
