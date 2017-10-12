@@ -4,7 +4,7 @@ from .models import ProductInfo,ProductComm,ProductCommImage
 
 
 class InfoAdmin(admin.ModelAdmin):
-    list_display = ('p_name','p_brand','p_price','p_image','p_id',)
+    list_display = ('p_name','p_brand','p_image','p_id',)
     search_fields = ( 'product_name',)
 
 class CommAdmin(admin.ModelAdmin):

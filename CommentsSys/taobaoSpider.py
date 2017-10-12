@@ -8,7 +8,6 @@ from bs4 import BeautifulSoup
 import simplejson
 import time
 
-
 def spider(url):
     base_url = 'https://rate.tmall.com/list_detail_rate.htm?'
     result = {}
@@ -52,14 +51,21 @@ def get_product_info(url,itemid):
     soup = BeautifulSoup(content, "html.parser")
     item = soup.find(id='dsr-userid')
     product["sellerid"] = item["value"]
-    item2 = soup.find(id='J_AttrUL')
-    title = [title["title"] for title in item2.find_all('li')]
-    product["p_name"] = title[0]
-    product["brand"] = title[4]
-    product["price"] = title[6]
+    item1 = soup.find(id='J_AttrUL')
+    # item2 = soup.find(id='J_attrBrandName')
+    print("p_name: "+soup.title.string)
+    product["p_name"] = soup.title.string
+    p_info = ''
+    for c in item1.contents:
+        p_info+=c.string
+    product["p_info"] = p_info
+    print("p_info: " +  product["p_info"])
+    product["brand"] = ""
+    # product["price"] = title[6]
     product["imgurl"] = soup.find(id="J_ImgBooth")["src"]
     product["url"] = url
     product["itemid"] = itemid
+    response.close()
     return product
 
 def get_comm(url):
@@ -83,7 +89,7 @@ def get_comm(url):
     paginator = rateDatail["paginator"]
     lastPage = paginator['lastPage']
     for i in range(0,lastPage):
-        time.sleep(5)
+        time.sleep(1)
         parm = {}
         parm['currentPage'] = i+1
         url_values = parse.urlencode(parm)
@@ -98,6 +104,7 @@ def get_comm(url):
         datajson = simplejson.loads(data)
         rateDatail = datajson["rateDetail"]
         rateList = rateDatail["rateList"]
+        response.close()
         for rate in rateList:
             comm ={}
             comm["id"] = rate["id"]

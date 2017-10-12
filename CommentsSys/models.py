@@ -4,7 +4,8 @@ from django.db import models
 class ProductInfo(models.Model):
     p_name = models.CharField(max_length=300,verbose_name='产品名称')
     p_brand = models.CharField(max_length=300,verbose_name='品牌')
-    p_price = models.FloatField(max_length=6,verbose_name='价格')
+    # p_price = models.FloatField(max_length=6,verbose_name='价格')
+    p_info = models.TextField(verbose_name='商品信息',blank=True,null=True)
     p_image = models.URLField(verbose_name='图片地址')
     p_url = models.URLField(verbose_name='商品地址')
     p_id = models.IntegerField(verbose_name='商品ID')

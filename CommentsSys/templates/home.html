@@ -15,6 +15,8 @@
                         <button type="submit" class="btn btn-primary "  name="submit" value="ti">提交</button></div>
                         <div class="col-sm-1 col-lg-1 col-md-1">
                         <button type="submit" class="btn btn-primary "  name="submit" value="view">查看</button></div>
+                        <div class="col-sm-1 col-lg-1 col-md-1">
+                        <button type="submit" class="btn btn-primary "  name="submit" value="save">保存图片</button></div>
                         <br>
                          <p>{{ msg }}</p>
                     </div>
@@ -25,10 +27,10 @@
     <div class="row">
   <div class="col-xs-6 col-md-3">
     <a href="#" class="thumbnail">
-      <img src="{{ product.p_image }}" alt="...">
+      <img src="{{ product.p_image }}">
     </a>
   </div>
-  ...
+        <div><p>{{ product.p_info }}</p></div>
 </div>
     </div>
     </div>
